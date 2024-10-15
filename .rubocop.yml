@@ -1099,6 +1099,8 @@ Layout/LineLength:
   # elements. Strings will be converted to Regexp objects. A line that matches
   # any regular expression listed in this option will be ignored by LineLength.
   AllowedPatterns: []
+  Exclude:
+    - 'spec/spec_helper.rb'
 
 Layout/MultilineArrayBraceLayout:
   Description: >-
@@ -5413,6 +5415,8 @@ Style/StringLiterals:
   # If `true`, strings which span multiple lines using `\` for continuation must
   # use the same type of quotes on each line.
   ConsistentQuotesInMultiline: true
+  AutoCorrect: true
+  SafeAutoCorrect: true
 
 Style/StringLiteralsInInterpolation:
   Description: >-
