@@ -5424,7 +5424,7 @@ Style/StringLiteralsInInterpolation:
                  strings match the configured preference.
   Enabled: true
   VersionAdded: '0.27'
-  EnforcedStyle: single_quotes
+  EnforcedStyle: double_quotes
   SupportedStyles:
     - single_quotes
     - double_quotes
