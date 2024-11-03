@@ -82,8 +82,6 @@ AllCops:
   StyleGuideBaseURL: https://rubystyle.guide
   # Documentation URLs will be constructed using the base URL.
   DocumentationBaseURL: https://docs.rubocop.org/rubocop
-  # Documentation URLs will end with this extension.
-  DocumentationExtension: .html
   # Extra details are not displayed in offense messages by default. Change
   # behavior by overriding ExtraDetails, or by giving the
   # `-E/--extra-details` option.
@@ -168,11 +166,6 @@ AllCops:
     rubocop-rspec_rails: [rspec-rails]
   # Enable/Disable checking the methods extended by Active Support.
   ActiveSupportExtensionsEnabled: false
-  # Future version of Ruby will freeze string literals by default.
-  # This allows to opt in early, for example when enabled through RUBYOPT.
-  # For now this will behave as if set to false but in future ruby versions
-  # (likely 4.0) it will be true by default.
-  StringLiteralsFrozenByDefault: ~
 
 #################### Bundler ###############################
 
@@ -492,7 +485,7 @@ Layout/CaseIndentation:
   SupportedStyles:
     - case
     - end
-  IndentOneStep: false
+  IndentOneStep: true
   # By default the indentation width from `Layout/IndentationWidth` is used,
   # but it can be overridden by setting this parameter.
   # This only matters if `IndentOneStep` is `true`.
@@ -993,6 +986,8 @@ Layout/IndentationConsistency:
   SupportedStyles:
     - normal
     - indented_internal_methods
+  AutoCorrect: true
+
   Reference:
     # A reference to `EnforcedStyle: indented_internal_methods`.
     - https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
@@ -1007,7 +1002,7 @@ Layout/IndentationStyle:
   # but it can be overridden by setting this parameter.
   # It is used during autocorrection to determine how many spaces should
   # replace each tab.
-  IndentationWidth: ~
+  IndentationWidth: 2
   EnforcedStyle: spaces
   SupportedStyles:
     - spaces
@@ -1084,6 +1079,8 @@ Layout/LineLength:
   Enabled: true
   VersionAdded: '0.25'
   VersionChanged: '1.4'
+  SafeAutoCorrect: true
+  AutoCorrect: true
   Max: 80
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
@@ -1099,8 +1096,6 @@ Layout/LineLength:
   # elements. Strings will be converted to Regexp objects. A line that matches
   # any regular expression listed in this option will be ignored by LineLength.
   AllowedPatterns: []
-  Exclude:
-    - 'spec/spec_helper.rb'
 
 Layout/MultilineArrayBraceLayout:
   Description: >-
@@ -2545,7 +2540,8 @@ Lint/UselessAssignment:
   Enabled: true
   AutoCorrect: contextual
   VersionAdded: '0.11'
-  VersionChanged: '1.66'
+  VersionChanged: '1.61'
+  SafeAutoCorrect: false
 
 Lint/UselessElseWithoutRescue:
   Description: 'Checks for useless `else` in `begin..end` without `rescue`.'
@@ -2560,11 +2556,6 @@ Lint/UselessMethodDefinition:
   VersionAdded: '0.90'
   VersionChanged: '1.61'
   Safe: false
-
-Lint/UselessNumericOperation:
-  Description: 'Checks for useless numeric operations.'
-  Enabled: pending
-  VersionAdded: '1.66'
 
 Lint/UselessRescue:
   Description: 'Checks for useless `rescue`s.'
@@ -2633,7 +2624,6 @@ Metrics/BlockLength:
   AllowedPatterns: []
   Exclude:
     - '**/*.gemspec'
-    - 'spec/**/*'
 
 Metrics/BlockNesting:
   Description: 'Avoid excessive block nesting.'
@@ -3945,6 +3935,9 @@ Style/FormatString:
     - format
     - sprintf
     - percent
+  SafeAutoCorrect: true
+  Autocorrect: true
+
 
 Style/FormatStringToken:
   Description: 'Use a consistent style for format string tokens.'
@@ -3986,7 +3979,8 @@ Style/FrozenStringLiteralComment:
     # `never` will enforce that the frozen string literal comment does not
     # exist in a file.
     - never
-  SafeAutoCorrect: false
+  SafeAutoCorrect: true
+  AutoCorrect: true
 
 Style/GlobalStdStream:
   Description: 'Enforces the use of `$stdout/$stderr/$stdin` instead of `STDOUT/STDERR/STDIN`.'
@@ -5065,11 +5059,6 @@ Style/RedundantInterpolation:
   VersionAdded: '0.76'
   VersionChanged: '1.30'
 
-Style/RedundantInterpolationUnfreeze:
-  Description: 'Checks for redundant unfreezing of interpolated strings.'
-  Enabled: pending
-  VersionAdded: '1.66'
-
 Style/RedundantLineContinuation:
   Description: 'Check for redundant line continuation.'
   Enabled: pending
@@ -5408,15 +5397,13 @@ Style/StringLiterals:
   Enabled: true
   VersionAdded: '0.9'
   VersionChanged: '0.36'
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
   SupportedStyles:
     - single_quotes
     - double_quotes
   # If `true`, strings which span multiple lines using `\` for continuation must
   # use the same type of quotes on each line.
-  ConsistentQuotesInMultiline: true
-  AutoCorrect: true
-  SafeAutoCorrect: true
+  ConsistentQuotesInMultiline: false
 
 Style/StringLiteralsInInterpolation:
   Description: >-
@@ -5424,7 +5411,7 @@ Style/StringLiteralsInInterpolation:
                  strings match the configured preference.
   Enabled: true
   VersionAdded: '0.27'
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
   SupportedStyles:
     - single_quotes
     - double_quotes
