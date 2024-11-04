@@ -232,7 +232,7 @@ Style/TrailingCommaInHashLiteral:
   Enabled: true
 
 Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented_relative_to_receiver
+  EnforcedStyle: aligned
 
 Layout/LineLength:
   Max: 80
