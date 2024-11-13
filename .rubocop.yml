@@ -236,9 +236,24 @@ Layout/MultilineMethodCallIndentation:
 
 Layout/LineLength:
   Max: 80
+  Exclude:
+    - db/migrate/**
+    - test/test_helper.rb
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb
+    - config/**/**
+    - app/jobs/application_job.rb
+    - Gemfile
+    - Rakefile
+    - app/mailers/application_mailer.rb
 
 Style/Documentation:
   Enabled: true
+  Exclude:
+    - db/migrate/**
+    - config/**/**
+    - app/models/application_record.rb
+    - app/mailers/application_mailer.rb
 
 Lint/UselessAssignment:
   Enabled: true
