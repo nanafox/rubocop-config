@@ -58,12 +58,6 @@ Layout/IndentationConsistency:
 Layout/IndentationStyle:
   Enabled: true
 
-# Two spaces, no tabs (for indentation).
-#
-# Doesn't behave properly with private-only concerns, so it's disabled.
-Layout/IndentationWidth:
-  Enabled: false
-
 Layout/LeadingCommentSpace:
   Enabled: true
 
@@ -246,6 +240,9 @@ Layout/LineLength:
     - Gemfile
     - Rakefile
     - app/mailers/application_mailer.rb
+    - app/controllers/application_controller.rb
+    - db/seeds.rb
+    - db/schema.rb
 
 Style/Documentation:
   Enabled: true
@@ -254,9 +251,21 @@ Style/Documentation:
     - config/**/**
     - app/models/application_record.rb
     - app/mailers/application_mailer.rb
+    - app/controllers/application_controller.rb
+    - app/helpers/application_helper.rb
 
 Lint/UselessAssignment:
   Enabled: true
 
 Lint/AmbiguousBlockAssociation:
   Enabled: true
+
+
+Layout/IndentationWidth:
+  Enabled: true
+  Width: 2 
+
+# Configure visibility-specific method indentation
+Layout/AccessModifierIndentation:
+  Enabled: true
+  EnforcedStyle: indent
