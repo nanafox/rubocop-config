@@ -5,7 +5,7 @@ inherit_mode:
     - Exclude
 
 AllCops:
-  NewCops: enable 
+  NewCops: enable
   DisabledByDefault: true
   SuggestExtensions: false
 
@@ -150,16 +150,6 @@ Performance:
 Performance/FlatMap:
   Enabled: true
 
-# Prefer assert_not over assert !
-Rails/AssertNot:
-  Include:
-    - "test/**/*"
-
-# Prefer assert_not_x over refute_x
-Rails/RefuteMethods:
-  Include:
-    - "test/**/*"
-
 # We generally prefer &&/|| but like low-precedence and/or in context
 Style/AndOr:
   Enabled: false
@@ -260,12 +250,6 @@ Lint/UselessAssignment:
 Lint/AmbiguousBlockAssociation:
   Enabled: true
 
-
 Layout/IndentationWidth:
   Enabled: true
-  Width: 2 
-
-# Configure visibility-specific method indentation
-Layout/AccessModifierIndentation:
-  Enabled: true
-  EnforcedStyle: indent
+  Width: 2
