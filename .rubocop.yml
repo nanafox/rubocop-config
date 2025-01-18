@@ -143,13 +143,6 @@ Lint/RequireParentheses:
 Lint/UriEscapeUnescape:
   Enabled: true
 
-Performance:
-  Exclude:
-    - "test/**/*"
-
-Performance/FlatMap:
-  Enabled: true
-
 # We generally prefer &&/|| but like low-precedence and/or in context
 Style/AndOr:
   Enabled: false
